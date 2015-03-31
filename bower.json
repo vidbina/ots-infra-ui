@@ -1,0 +1,36 @@
+{
+  "name": "OTS Simulation Design Tool",
+  "version": "0.0.1",
+  "authors": [
+    "David Asabina <david@supr.nu>"
+  ],
+  "description": "A tool to allow the graphical design and manipulation of OTS simulation models",
+  "main": "index.html",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "graph",
+    "editor",
+    "simulation",
+    "design",
+    "infrastructure",
+    "design",
+    "ui",
+    "user",
+    "interface",
+    "OTS",
+    "open",
+    "traffic",
+    "simulation"
+  ],
+  "license": "MIT",
+  "homepage": "http://opentrafficsim.org",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
