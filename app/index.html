@@ -19,16 +19,19 @@
     // Include app dependency on ngMaterial
 
     angular.module('d3', [])
-      .factory('d3Service', [function() {
-        var d3;
-        console.log('d3 service factory here');
-        return d3;
+      .factory('d3Service', ['$document', '$q', '$rootScope', function($document, $q, $rootScope) {
+        console.log('d3 service factory prepping promise');
+        var d = $q.defer();
+        setTimeout(function() { console.log("resolved d3"); d.resolve(d3) }, 1000); // load d3 for real
+        return { 
+          dthree: function() { return d.promise; }
+        };
       }
     ]);
 
     var app = angular.module( 'OTSDesignTool', [ 'ngMaterial', 'd3' ] );
     
-    app.directive('infraSchematic', function() { 
+    app.directive('infraSchematic', ['d3Service', function(d3Service) { 
       console.log("schematic here");
       return {
         restrict: 'E',
@@ -37,34 +40,18 @@
         template: '<svg</svg>',
         link: function($scope, el, attr) {
           console.log("link");
-          console.log(d3);
+          d3Service.dthree().then(function(dthree) { 
+            console.log("promised resolved");
+            console.log(dthree);
+            dthree.select(el[0]).append('svg');
+          });
           console.log(el);
         }
       }
-    });
-
-    angular.module('myApp.directives', ['d3'])
-      .directive('infra', ['d3Service', function(d3Service) {
-        console.log('barchart uses d3Service');
-        return {
-          restrict: 'EA'
-        }
-      }]);
+    }]);
 
     app.controller("DemoCtrl", ['$scope', function($scope) {
-      console.log("Here we go, Hans");
-
-       var svg = d3.select("body")
-        .append('svg')
-        .attr('width', 400)
-        .attr('height', 500);
-      console.log(svg);
-
-      function mousedown() { 
-        console.log("mouse down");
-      }
-
-      svg.on('mousedown', mousedown);
+      console.log("keep them flowing");
     }] );
 
     </script>
