@@ -34,6 +34,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular-material": "~0.8.3"
+    "angular-material": "~0.8.3",
+    "d3": "~3.3.5"
   }
 }
