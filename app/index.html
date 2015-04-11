@@ -15,46 +15,7 @@
     <script src="/bower_components/angular-animate/angular-animate.js"></script>
     <script src="/bower_components/angular-material/angular-material.js"></script>
     <script src="/bower_components/d3/d3.js"></script>
-    <script>
-    // Include app dependency on ngMaterial
-
-    angular.module('d3', [])
-      .factory('d3Service', ['$document', '$q', '$rootScope', function($document, $q, $rootScope) {
-        console.log('d3 service factory prepping promise');
-        var d = $q.defer();
-        setTimeout(function() { console.log("resolved d3"); d.resolve(d3) }, 1000); // load d3 for real
-        return { 
-          dthree: function() { return d.promise; }
-        };
-      }
-    ]);
-
-    var app = angular.module( 'OTSDesignTool', [ 'ngMaterial', 'd3' ] );
-    
-    app.directive('infraSchematic', ['d3Service', function(d3Service) { 
-      console.log("schematic here");
-      return {
-        restrict: 'E',
-        //require: '^ngModel',
-        scope: true,
-        template: '<svg</svg>',
-        link: function($scope, el, attr) {
-          console.log("link");
-          d3Service.dthree().then(function(dthree) { 
-            console.log("promised resolved");
-            console.log(dthree);
-            dthree.select(el[0]).append('svg');
-          });
-          console.log(el);
-        }
-      }
-    }]);
-
-    app.controller("DemoCtrl", ['$scope', function($scope) {
-      console.log("keep them flowing");
-    }] );
-
-    </script>
+    <script src="js/main.js"></script>
 
   </body>
 </html>
