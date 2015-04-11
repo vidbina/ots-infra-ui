@@ -3,10 +3,12 @@
   <head>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="css/basic.css">
   </head>
   <body ng-app="OTSDesignTool">
 
-    <div ng-controller="DemoCtrl" ng-include="'templates/demo.html'"></div>
+    <div ng-controller="DemoCtrl" ng-include="'templates/demo.html'" layout-fill></div>
 
     <script src="/bower_components/angular/angular.js"></script>
     <script src="/bower_components/angular-aria/angular-aria.js"></script>
@@ -16,9 +18,53 @@
     <script>
     // Include app dependency on ngMaterial
 
-    var app = angular.module( 'OTSDesignTool', [ 'ngMaterial' ] );
+    angular.module('d3', [])
+      .factory('d3Service', [function() {
+        var d3;
+        console.log('d3 service factory here');
+        return d3;
+      }
+    ]);
+
+    var app = angular.module( 'OTSDesignTool', [ 'ngMaterial', 'd3' ] );
+    
+    app.directive('infraSchematic', function() { 
+      console.log("schematic here");
+      return {
+        restrict: 'E',
+        //require: '^ngModel',
+        scope: true,
+        template: '<svg</svg>',
+        link: function($scope, el, attr) {
+          console.log("link");
+          console.log(d3);
+          console.log(el);
+        }
+      }
+    });
+
+    angular.module('myApp.directives', ['d3'])
+      .directive('infra', ['d3Service', function(d3Service) {
+        console.log('barchart uses d3Service');
+        return {
+          restrict: 'EA'
+        }
+      }]);
+
     app.controller("DemoCtrl", ['$scope', function($scope) {
       console.log("Here we go, Hans");
+
+       var svg = d3.select("body")
+        .append('svg')
+        .attr('width', 400)
+        .attr('height', 500);
+      console.log(svg);
+
+      function mousedown() { 
+        console.log("mouse down");
+      }
+
+      svg.on('mousedown', mousedown);
     }] );
 
     </script>
