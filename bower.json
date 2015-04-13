@@ -35,6 +35,8 @@
   ],
   "dependencies": {
     "angular-material": "~0.8.3",
-    "d3": "~3.3.5"
+    "d3": "~3.3.5",
+    "requirejs": "~2.1.17",
+    "requirejs-domready": "~2.0.1"
   }
 }
