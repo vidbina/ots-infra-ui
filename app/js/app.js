@@ -16,6 +16,9 @@ requirejs.config({
     'd3': {
       exports: 'd3',
      },
+     'app': {
+        deps: ['app/services/d3']
+      }
   },
   paths: {
     'app': '/app/js',
