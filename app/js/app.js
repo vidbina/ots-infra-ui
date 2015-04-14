@@ -15,16 +15,16 @@ requirejs.config({
     },
     'd3': {
       exports: 'd3',
-     },
-     'app': {
-        deps: [
-          'app/services/d3',
-          //'app/directives/infra-schematic',
-        ]
-      }
+    },
+    'application': {
+      deps: [
+        'app/services/d3',
+      ]
+    }
   },
   paths: {
-    //'appName': 'OTSDesignTool',
+    'application': '/app/js/main',
+    'directives': '/app/js/directives',
     'app': '/app/js',
     'domReady': 'requirejs-domready/domReady',
     'angular': 'angular/angular',
@@ -33,12 +33,11 @@ requirejs.config({
     'ngAria': 'angular-aria/angular-aria',
     'ngMaterial': 'angular-material/angular-material',
   },
-  //deps: ['app/main'],
 });
 
-require(['domReady'], function(domReady) {
+require(['domReady', 'app/config'], function(domReady, config) {
   domReady(function() {
     console.log("dom ready");
-    require(['app/main'], function() { });
+    require(['application'], function(app) { });
   });
 });

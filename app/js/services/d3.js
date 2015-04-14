@@ -9,7 +9,7 @@ define(['angular', 'd3'], function(ng, d3) {
       var d = $q.defer();
       setTimeout(function() { console.log("resolved d3"); d.resolve(d3) }, 1000); // load d3 for real
       return { 
-        dthree: function() { return d.promise; }
+        d3: function() { return d.promise; }
       };
     }]
   );
