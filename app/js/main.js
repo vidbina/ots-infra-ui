@@ -1,11 +1,11 @@
 'use strict';
-define(['angular', 'd3', 'ngMaterial'], function(ng, dthree, ngMaterial) {
-  var appName = 'OTSDesignTool';
+define(['app/config', 'angular', 'd3', 'ngMaterial'], function(config, ng, dthree, ngMaterial) {
+  var appName = config.getAppName();
 
   ng.module(appName, ['ngMaterial', 'd3']);
   ng.element(document).ready(function() {
-    ng.bootstrap(document, ['OTSDesignTool']);
-    console.log('booted');
+    ng.bootstrap(document, [appName]);
+    console.log('booted ' + appName);
   });
   
   ng.module(appName).directive('infraSchematic', ['d3Service', function(d3Service) { 

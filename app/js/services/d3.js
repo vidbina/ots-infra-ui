@@ -1,3 +1,4 @@
+'use strict';
 define(['angular', 'd3'], function(ng, d3) {
   console.log("loading d3");
   ng.module('d3', [])
