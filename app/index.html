@@ -3,24 +3,20 @@
   <head>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="css/basic.css">
+    <script data-main="js/app.js" src="/bower_components/requirejs/require.js"></script>
   </head>
-  <body ng-app="OTSDesignTool">
+  <body>
 
-    <div ng-controller="DemoCtrl" ng-include="'templates/demo.html'"></div>
+    <div ng-controller="DemoCtrl" ng-include="'templates/demo.html'" layout-fill></div>
 
-    <script src="/bower_components/angular/angular.js"></script>
+    <!--<script src="/bower_components/angular/angular.js"></script>
     <script src="/bower_components/angular-aria/angular-aria.js"></script>
     <script src="/bower_components/angular-animate/angular-animate.js"></script>
     <script src="/bower_components/angular-material/angular-material.js"></script>
-    <script>
-    // Include app dependency on ngMaterial
-
-    var app = angular.module( 'OTSDesignTool', [ 'ngMaterial' ] );
-    app.controller("DemoCtrl", ['$scope', function($scope) {
-      console.log("Here we go, Hans");
-    }] );
-
-    </script>
+    <script src="/bower_components/d3/d3.js"></script>
+    <script src="js/main.js"></script>-->
 
   </body>
 </html>
