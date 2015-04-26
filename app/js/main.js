@@ -13,6 +13,14 @@ define(['app/config', 'angular', 'd3', 'ngMaterial', 'directives/infra-schematic
   
   ng.module(appName).controller("DemoCtrl", ['$scope', function($scope) {
     console.log("keep them flowing");
+
+    $scope.infrastructure = {
+      currentDrawable: 'node',
+    };
+
+    $scope.select = function(item) {
+      console.log('selected ' + item);
+    };
   }] );
 
   return config.getAppModule();

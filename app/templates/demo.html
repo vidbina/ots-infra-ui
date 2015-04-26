@@ -4,6 +4,12 @@
       <span>Open Traffic Sim Designer</span>
       <!-- fill up the space between left and right area -->
       <span flex></span>
+      <md-button class="md-icon-button" aria-label="Node" ng-click="select('node')">
+        Node
+      </md-button>
+      <md-button class="md-icon-button" aria-label="Link" ng-click="select('link')">
+        Link
+      </md-button>
       <md-button class="md-icon-button" aria-label="Import XML">
         Import XML
       </md-button>
@@ -15,7 +21,7 @@
   <div layout="row" flex>
     <!--<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')"></md-sidenav>-->
     <div layout="column" flex id="content">
-      <infra-schematic></infra-schematic>
+      <infra-schematic ng-model="infrastructure"></infra-schematic>
     </div>
   </div>
 </div>
