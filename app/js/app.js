@@ -23,9 +23,10 @@ requirejs.config({
     }
   },
   paths: {
+    'app': '/app/js',
     'application': '/app/js/main',
     'directives': '/app/js/directives',
-    'app': '/app/js',
+    'controllers': '/app/js/controllers',
     'domReady': 'requirejs-domready/domReady',
     'angular': 'angular/angular',
     'd3': 'd3/d3',
