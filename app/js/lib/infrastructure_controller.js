@@ -3,6 +3,8 @@ if (typeof define !== "function") {
 }
 
 define(['exports'], function(exports) {
+  'use strict';
+
   exports.controller = function(data) {
     var _data = data;
     var _title = 'Untitled';
@@ -25,7 +27,9 @@ define(['exports'], function(exports) {
           break;
       }
     };
-    this.getDrawable = function() { return _drawable; }
+    this.getDrawable = function() { return _drawable; };
+    this.setDrawingAction = function(action, details) {
+    };
 
     this.getElements = function() { return elements; };
     this.addElement = function(item) { elements.push(item); };

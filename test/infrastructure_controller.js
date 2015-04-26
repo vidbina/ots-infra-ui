@@ -42,7 +42,5 @@ describe('Infrastructure Controller', function() {
     expect(subject.getDrawable()).to.equal('node');
     subject.setDrawable('nonsense');
     expect(subject.getDrawable()).to.equal(undefined);
-    subject.getDrawable() = 'oops';
-    expect(subject.getDrawable()).to.equal(undefined);
   });
 });

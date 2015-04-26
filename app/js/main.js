@@ -14,6 +14,7 @@ define(['app/config', 'angular', 'd3', 'ngMaterial', 'directives/infra-schematic
   ng.module(appName).controller("DemoCtrl", ['$scope', function($scope) {
     console.log("keep them flowing");
 
+    $scope.testing = { name: 'Test', age: 30 };
     $scope.infrastructure = {
       currentDrawable: 'node',
     };
@@ -21,7 +22,7 @@ define(['app/config', 'angular', 'd3', 'ngMaterial', 'directives/infra-schematic
     $scope.select = function(item) {
       console.log('selected ' + item);
     };
-  }] );
+  }]);
 
   return config.getAppModule();
 });
