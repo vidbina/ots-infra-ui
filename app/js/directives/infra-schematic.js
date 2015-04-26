@@ -1,7 +1,11 @@
-define(['app/config', 'angular'], function(config, ng) {
+define(['app/config', 'angular', 'app/lib/infrastructure_controller'], function(config, ng, infraCtrl) {
   'use strict';
 
   var appName = config.getAppName();
+
+  var InfraCtrl = new infraCtrl.controller('test');
+  console.log("infrastructure data is " + InfraCtrl.getData());
+  console.log(InfraCtrl.getElements());
 
   console.log('loading infra-schematic directive for ' + appName);
 
