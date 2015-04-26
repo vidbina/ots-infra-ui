@@ -1,4 +1,4 @@
-define(['app/config', 'angular', 'd3', 'ngMaterial', 'directives/infra-schematic'], function(config, ng, dthree, ngMaterial) {
+define(['app/config', 'angular', 'd3', 'ngMaterial', 'app/lib/infrastructure_controller', 'directives/infra-schematic'], function(config, ng, dthree, ngMaterial, infraCtrl) {
   'use strict';
   var appName = config.getAppName();
 
@@ -14,13 +14,14 @@ define(['app/config', 'angular', 'd3', 'ngMaterial', 'directives/infra-schematic
   ng.module(appName).controller("DemoCtrl", ['$scope', function($scope) {
     console.log("keep them flowing");
 
-    $scope.testing = { name: 'Test', age: 30 };
+    $scope.testing = new infraCtrl.controller('from main.js');
     $scope.infrastructure = {
       currentDrawable: 'node',
     };
 
     $scope.select = function(item) {
       console.log('selected ' + item);
+      console.log($scope.testing.getData());
     };
   }]);
 
