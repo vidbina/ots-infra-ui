@@ -1,5 +1,5 @@
 md-content {
-  border: 1px solid red;
+  border: none;
   background-color: black;
 }
 
@@ -16,4 +16,8 @@ infra-schematic > svg {
 .axis line {
   fill: none;
   stroke: #fff;
+}
+
+rect.canvas_bg {
+  fill: #ddd;
 }

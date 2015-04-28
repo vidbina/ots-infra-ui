@@ -79,7 +79,8 @@ define(['app/config', 'angular', 'app/lib/infrastructure_controller'], function(
 
             svg.append("rect")
               .attr("width", width)
-              .attr("height", height);
+              .attr("height", height)
+              .attr("class", "canvas_bg");
             svg.append("g")
               .attr("class", "x axis")
               .attr("transform", "translate(0," + height + ")")
